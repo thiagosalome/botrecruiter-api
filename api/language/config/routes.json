@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/languages",
+      "handler": "Language.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/languages/count",
+      "handler": "Language.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/languages/:_id",
+      "handler": "Language.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/languages",
+      "handler": "Language.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/languages/:_id",
+      "handler": "Language.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/languages/:_id",
+      "handler": "Language.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "connection": "default",
+  "collectionName": "work",
+  "info": {
+    "name": "work",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "company": {
+      "default": "",
+      "type": "string"
+    },
+    "position": {
+      "default": "",
+      "type": "string"
+    },
+    "website": {
+      "default": "",
+      "type": "string"
+    },
+    "startDate": {
+      "default": "",
+      "type": "date"
+    },
+    "endDate": {
+      "default": "",
+      "type": "date"
+    },
+    "summary": {
+      "default": "",
+      "type": "text"
+    },
+    "present": {
+      "default": false,
+      "type": "boolean"
+    }
+  }
+}

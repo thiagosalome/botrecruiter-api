@@ -1,0 +1,34 @@
+{
+  "connection": "default",
+  "collectionName": "award",
+  "info": {
+    "name": "award",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string"
+    },
+    "date": {
+      "default": "",
+      "type": "date"
+    },
+    "awarder": {
+      "default": "",
+      "type": "string"
+    },
+    "summary": {
+      "default": "",
+      "type": "text"
+    },
+    "user": {
+      "model": "user",
+      "via": "awards",
+      "plugin": "users-permissions"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "connection": "default",
+  "collectionName": "language",
+  "info": {
+    "name": "language",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "language": {
+      "default": "",
+      "type": "string"
+    },
+    "fluency": {
+      "default": "",
+      "type": "string"
+    },
+    "user": {
+      "model": "user",
+      "via": "languages",
+      "plugin": "users-permissions"
+    }
+  }
+}

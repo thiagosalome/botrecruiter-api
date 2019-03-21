@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/awards",
+      "handler": "Award.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/awards/count",
+      "handler": "Award.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/awards/:_id",
+      "handler": "Award.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/awards",
+      "handler": "Award.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/awards/:_id",
+      "handler": "Award.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/awards/:_id",
+      "handler": "Award.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
