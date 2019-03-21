@@ -13,7 +13,7 @@
       "default": "",
       "type": "string"
     },
-    "fluency": {
+    "level": {
       "default": "",
       "type": "string"
     },

@@ -36,6 +36,11 @@
     "present": {
       "default": false,
       "type": "boolean"
+    },
+    "user": {
+      "model": "user",
+      "via": "works",
+      "plugin": "users-permissions"
     }
   }
 }
