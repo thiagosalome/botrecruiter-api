@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Work.js service
+ * Candidate.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -12,21 +12,21 @@ const _ = require('lodash');
 module.exports = {
 
   /**
-   * Promise to fetch all works.
+   * Promise to fetch all candidates.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('work', params);
+    const filters = strapi.utils.models.convertParams('candidate', params);
     // Select field to populate.
-    const populate = Work.associations
+    const populate = Candidate.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Work
+    return Candidate
       .find()
       .where(filters.where)
       .sort(filters.sort)
@@ -36,90 +36,90 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an work.
+   * Promise to fetch a/an candidate.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Work.associations
+    const populate = Candidate.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Work
-      .findOne(_.pick(params, _.keys(Work.schema.paths)))
+    return Candidate
+      .findOne(_.pick(params, _.keys(Candidate.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count works.
+   * Promise to count candidates.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('work', params);
+    const filters = strapi.utils.models.convertParams('candidate', params);
 
-    return Work
+    return Candidate
       .countDocuments()
       .where(filters.where);
   },
 
   /**
-   * Promise to add a/an work.
+   * Promise to add a/an candidate.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Work.associations.map(ast => ast.alias));
-    const data = _.omit(values, Work.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Candidate.associations.map(ast => ast.alias));
+    const data = _.omit(values, Candidate.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Work.create(data);
+    const entry = await Candidate.create(data);
 
     // Create relational data and return the entry.
-    return Work.updateRelations({ _id: entry.id, values: relations });
+    return Candidate.updateRelations({ _id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an work.
+   * Promise to edit a/an candidate.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Work.associations.map(a => a.alias));
-    const data = _.omit(values, Work.associations.map(a => a.alias));
+    const relations = _.pick(values, Candidate.associations.map(a => a.alias));
+    const data = _.omit(values, Candidate.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Work.updateOne(params, data, { multi: true });
+    const entry = await Candidate.updateOne(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Work.updateRelations(Object.assign(params, { values: relations }));
+    return Candidate.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an work.
+   * Promise to remove a/an candidate.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Work.associations
+    const populate = Candidate.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Work
+    const data = await Candidate
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -128,7 +128,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Work.associations.map(async association => {
+      Candidate.associations.map(async association => {
         if (!association.via || !data._id) {
           return true;
         }
@@ -149,22 +149,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an work.
+   * Promise to search a/an candidate.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('work', params);
+    const filters = strapi.utils.models.convertParams('candidate', params);
     // Select field to populate.
-    const populate = Work.associations
+    const populate = Candidate.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Work.attributes).reduce((acc, curr) => {
-      switch (Work.attributes[curr].type) {
+    const $or = Object.keys(Candidate.attributes).reduce((acc, curr) => {
+      switch (Candidate.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -188,7 +188,7 @@ module.exports = {
       }
     }, []);
 
-    return Work
+    return Candidate
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)

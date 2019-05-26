@@ -1,15 +1,15 @@
 {
   "connection": "default",
-  "collectionName": "work",
+  "collectionName": "candidato",
   "info": {
-    "name": "work",
+    "name": "candidate",
     "description": ""
   },
   "options": {
     "timestamps": true
   },
   "attributes": {
-    "company": {
+    "name": {
       "default": "",
       "type": "string"
     },
@@ -17,30 +17,33 @@
       "default": "",
       "type": "string"
     },
-    "website": {
+    "level": {
       "default": "",
       "type": "string"
     },
-    "startDate": {
+    "email": {
       "default": "",
-      "type": "date"
+      "type": "email"
     },
-    "endDate": {
+    "phone": {
       "default": "",
-      "type": "date"
+      "type": "string"
     },
-    "summary": {
+    "competencies": {
       "default": "",
-      "type": "text"
+      "type": "json"
     },
-    "present": {
-      "default": false,
-      "type": "boolean"
+    "languages": {
+      "default": "",
+      "type": "json"
     },
-    "user": {
-      "model": "user",
-      "via": "works",
-      "plugin": "users-permissions"
+    "institutions": {
+      "default": "",
+      "type": "json"
+    },
+    "city": {
+      "default": "",
+      "type": "string"
     }
   }
 }

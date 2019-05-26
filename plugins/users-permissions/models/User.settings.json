@@ -60,34 +60,6 @@
     "summary": {
       "default": "",
       "type": "text"
-    },
-    "skills": {
-      "collection": "skill",
-      "via": "user"
-    },
-    "profiles": {
-      "collection": "profile",
-      "via": "user"
-    },
-    "location": {
-      "model": "location",
-      "via": "user"
-    },
-    "languages": {
-      "collection": "language",
-      "via": "user"
-    },
-    "educations": {
-      "collection": "education",
-      "via": "user"
-    },
-    "awards": {
-      "collection": "award",
-      "via": "user"
-    },
-    "works": {
-      "collection": "work",
-      "via": "user"
     }
   },
   "collectionName": "users-permissions_user"
